@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Daily10Minutes_20201121"
         android:usesCleartextTraffic="true">
         <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

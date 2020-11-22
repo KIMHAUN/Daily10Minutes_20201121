@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/logoutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="임시 로그아웃 버튼"/>
+
     <ListView
         android:id="@+id/projectListView"
         android:layout_width="match_parent"

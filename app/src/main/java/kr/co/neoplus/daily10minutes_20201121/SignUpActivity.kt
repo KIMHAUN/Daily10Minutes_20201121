@@ -2,6 +2,8 @@ package kr.co.neoplus.daily10minutes_20201121
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
@@ -26,6 +28,22 @@ class SignUpActivity : BaseActivity() {
 //            내용이 변경되면 검사 결과 상태 원상태로 복귀
             checkResultTxt.text = "중복 확인을 해주세요."
         }
+
+        //TextWatcher interface 작성 3개를 다 구분해서 쓰는 경우는 거의 없음.
+//        idEdt.addTextChangedListener(object : TextWatcher {
+//
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+//
+//            }
+//
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+//            }
+//
+//            override fun afterTextChanged(s: Editable?) {
+//                Log.d("변경된 문구", s!!.toString())
+//            }
+//
+//        })
 
         emailCheckBtn.setOnClickListener {
 //            1. 입력한 이메일 값 확인

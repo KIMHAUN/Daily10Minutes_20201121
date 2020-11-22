@@ -2,7 +2,9 @@ package kr.co.neoplus.daily10minutes_20201121
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import kr.co.neoplus.daily10minutes_20201121.utils.ServerUtil
 import org.json.JSONObject
@@ -15,6 +17,16 @@ class SignUpActivity : BaseActivity() {
         setValues()
     }
     override fun setupEvents() {
+//        이메일 입력칸 내용이 변경될 때
+
+        idEdt.addTextChangedListener {
+//            한 글자라도 내용이 변경되면 실행되는 부분.
+            Log.d("아이디 입력값", idEdt.text.toString())
+
+//            내용이 변경되면 검사 결과 상태 원상태로 복귀
+            checkResultTxt.text = "중복 확인을 해주세요."
+        }
+
         emailCheckBtn.setOnClickListener {
 //            1. 입력한 이메일 값 확인
             val inputEmail = idEdt.text.toString()
@@ -30,12 +42,10 @@ class SignUpActivity : BaseActivity() {
                     runOnUiThread {
                         checkResultTxt.text = message //ui를 건드린다
                     }
-
-
                 }
             })
-
         }
+
         okBtn.setOnClickListener {
 //            1.입력한 아이디/비번/닉네임 파악
             val inputId = idEdt.text.toString()

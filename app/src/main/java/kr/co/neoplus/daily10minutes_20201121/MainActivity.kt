@@ -34,6 +34,7 @@ class MainActivity : BaseActivity() {
                     //서버가 알려주는code값 추출해서 LOG로 출력
                     val codeNum = json.getInt("code")
 
+
                     Log.d("코드값", codeNum.toString())
 
 //                    받아낸 코드값으로 로그인 성공/실패를 토스트로 출력
@@ -44,9 +45,11 @@ class MainActivity : BaseActivity() {
                         }
 
                     }else{
-//                        login fail
+//                        login fail, 실패 사유
+//                        응답에 "message"라는 이름표가 붙은 String을 받아서 사용.
+                        val message = json.getString("message")
                         runOnUiThread{
-                            Toast.makeText(mContext, "로그인 실패", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
                         }
 
                     }

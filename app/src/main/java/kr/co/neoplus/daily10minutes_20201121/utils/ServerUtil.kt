@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import okhttp3.*
+import org.json.JSONObject
 import java.io.IOException
 
 class ServerUtil {
@@ -61,9 +62,14 @@ class ServerUtil {
 //                    String 형태로 변환해서 저장(로그로 확인) toString말고 string()
                     val bodyString = response.body!!.string()
 
-                    Log.d("서버응답 본문", bodyString)
-                }
+//                  bodyString은 JSON 양식으로 가공되어 내려옴.\ub85c\uadf8\uc778 \uc131\uacf5.
+//                    앱에서도 JSON을 다룰 수 있도록 bodystring => JSON
+//                    Log.d("서버응답 본문", bodyString)
+                    val jsonObj = JSONObject(bodyString)
 
+                    Log.d("서버응답 본문", jsonObj.toString())
+
+                }
             })
         }
     }

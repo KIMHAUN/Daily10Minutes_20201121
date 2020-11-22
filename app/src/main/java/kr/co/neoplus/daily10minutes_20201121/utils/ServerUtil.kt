@@ -1,8 +1,10 @@
 package kr.co.neoplus.daily10minutes_20201121.utils
 
-import okhttp3.FormBody
-import okhttp3.OkHttpClient
-import okhttp3.Request
+import android.content.Context
+import android.util.Log
+import android.widget.Toast
+import okhttp3.*
+import java.io.IOException
 
 class ServerUtil {
 
@@ -13,7 +15,7 @@ class ServerUtil {
         val BASE_URL = "http://15.164.153.174"
 //      로그인 기능 수행 함수.
 
-        fun postRequestLogin(id:String, pw:String){
+        fun postRequestLogin(context: Context, id:String, pw:String){
 //            클라이언트의 역할을 수행해주는 변수(라이브러리 활용)
             val client = OkHttpClient()
 
@@ -45,8 +47,24 @@ class ServerUtil {
 //            startActivity처럼 실제로 Request를 실행시키는 함수.
 //            클라이언트로 동작하는 행위(Request 호출)
 //            OktHttp 라이브러리 => client 변수 활용
-            client.newCall(request)
 
+//            돌아왔을 때 할 가이드북 작성(object)
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+//                    서버에 연결 자체 실패(인터넷 단선, 서버 터짐 등의 사유)
+                    Toast.makeText(context, "서버에 문제가 있습니다.", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+//                    서버가 내려준 응답에 뭐라고 적혀있는지 확인
+//                    응답(Response) - 본문(body) + 부가정보들 => body만 추출.
+//                    String 형태로 변환해서 저장(로그로 확인) toString말고 string()
+                    val bodyString = response.body!!.string()
+
+                    Log.d("서버응답 본문", bodyString)
+                }
+
+            })
         }
     }
 }

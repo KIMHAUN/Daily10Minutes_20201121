@@ -48,6 +48,10 @@ class LoginActivity : BaseActivity() {
 //                        login success
                         runOnUiThread {
                             Toast.makeText(mContext, "로그인 성공", Toast.LENGTH_SHORT).show()
+
+//                            받은 토큰 값을 저장. (다른 화면에서도 활용) 나의 토큰 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpZCI6ODAsImVtYWlsIjoid2hhMDIwNjhAZ21haWwuY29tIiwicGFzc3dvcmQiOiIwYWQ4NmMwZDA1NDA0YzQwZGY2MGU4MzlhYTRjMjdlMiJ9.yRk9TXyHjSJdpXyD2YooeyBTTt0UZKZSALzWtpUnitYW4qz2enTb3kJJrhvM3KExrxtZUv_RmbZX3p_nov_HvQ
+
+//                            메인화면으로 진입 + 로그인 화면 종료
                         }
 
                     }else{

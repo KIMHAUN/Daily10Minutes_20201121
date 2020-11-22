@@ -15,7 +15,18 @@ class SignUpActivity : BaseActivity() {
         setValues()
     }
     override fun setupEvents() {
+        emailCheckBtn.setOnClickListener {
+//            1. 입력한 이메일 값 확인
+            val inputEmail = idEdt.text.toString()
 
+//            2. 서버에 중복인지 물어봄 => API 호출 (서버문서 확인)
+            ServerUtil.getRequestEmailCheck(mContext, inputEmail, null)
+
+
+
+
+//            3. 검사 결과를 텍스트뷰에 반영
+        }
         okBtn.setOnClickListener {
 //            1.입력한 아이디/비번/닉네임 파악
             val inputId = idEdt.text.toString()
@@ -57,7 +68,6 @@ class SignUpActivity : BaseActivity() {
                 })
         }
     }
-
     override fun setValues() {
     }
 }

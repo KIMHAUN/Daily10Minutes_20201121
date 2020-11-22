@@ -82,8 +82,37 @@ class ServerUtil {
                 }
             })
         }
+//      회원가입 기능(context, handler는 고정
+        fun putRequestSignUp(context: Context, id:String, pw:String, nickName:String, handler : JsonResponseHandler?){
+            val client = OkHttpClient()
+
+            val urlString = "${BASE_URL}/user"
+
+            val formData = FormBody.Builder()
+                .add("email", id)
+                .add("password", pw)
+                .add("nick_name", nickName)
+                .build()
+
+            val request = Request.Builder()
+                .url(urlString)
+                .put(formData)
+//                .header("이름표", "값") 헤더 요구시 주석 해제
+                .build()
+
+//    갔다와서 할 일 enqueue로 등록
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    Toast.makeText(context, "서버에 문제가 있씁니다.", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val bodyString = response.body!!.string()
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버 응답 본문", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+                }
+            })
+        }
     }
-
-//    회원가입 기능
-
 }

@@ -3,6 +3,7 @@ package kr.co.neoplus.daily10minutes_20201121
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
+import kr.co.neoplus.daily10minutes_20201121.utils.ServerUtil
 
 class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +20,8 @@ class MainActivity : BaseActivity() {
             val inputPwd = pwdEdt.text.toString()
 
 //            2. 서버에 맞는 회원인지 확인(로그인 API 호출) => 서버 응답 분석=> UI 반영
+            ServerUtil.postRequestLogin(inputEmail, inputPwd)
+
 
 
 

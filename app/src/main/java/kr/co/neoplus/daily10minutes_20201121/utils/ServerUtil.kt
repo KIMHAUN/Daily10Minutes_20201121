@@ -47,14 +47,6 @@ class ServerUtil {
 //            OktHttp 라이브러리 => client 변수 활용
             client.newCall(request)
 
-
-
-
-
-
-
-
-
         }
     }
 }

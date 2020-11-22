@@ -58,6 +58,10 @@ class LoginActivity : BaseActivity() {
                             ContextUtil.setLoginUserToken(mContext, token)
 
 //                            메인화면으로 진입 + 로그인 화면 종료
+                            val myIntent = Intent(mContext, MainActivity::class.java)
+                            startActivity(myIntent)
+
+                            finish()
 
                         }
 

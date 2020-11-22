@@ -1,5 +1,6 @@
 package kr.co.neoplus.daily10minutes_20201121
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,9 @@ class MainActivity : BaseActivity() {
         setupEvents()
     }
     override fun setupEvents() {
+        signUpBtn.setOnClickListener {
+            val myIntent = Intent(mContext, SignUpActivity::class.java)
+        }
 
         signInBtn.setOnClickListener {
 //            1. 입력된 아이디 / 비번 받아오기

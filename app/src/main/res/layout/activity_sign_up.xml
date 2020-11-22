@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <EditText
+            android:id="@+id/idEdt"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -41,6 +42,7 @@
         android:layout_marginTop="20dp"/>
 
     <EditText
+        android:id="@+id/pwEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="8글자 이상으로 입력해주세요."
@@ -52,11 +54,13 @@
         android:layout_marginTop="20dp"
         android:text="닉네임"/>
     <EditText
+        android:id="@+id/nickNameEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="닉네임을 입력해주세요. 한글도 가능합니다."
         android:singleLine="true"/>
     <Button
+        android:id="@+id/okBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="회원가입 진행"/>

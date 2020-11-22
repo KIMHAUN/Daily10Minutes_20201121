@@ -22,7 +22,6 @@ class ServerUtil {
 //      서버 호스트 주소를 쉽게 입력하기 위한 변수
         val BASE_URL = "http://15.164.153.174"
 //      로그인 기능 수행 함수.
-
         fun postRequestLogin(context: Context, id:String, pw:String, handler : JsonResponseHandler?){
 //            클라이언트의 역할을 수행해주는 변수(라이브러리 활용)
             val client = OkHttpClient()
@@ -84,4 +83,7 @@ class ServerUtil {
             })
         }
     }
+
+//    회원가입 기능
+
 }

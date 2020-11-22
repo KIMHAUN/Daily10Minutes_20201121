@@ -20,12 +20,21 @@ class SignUpActivity : BaseActivity() {
             val inputEmail = idEdt.text.toString()
 
 //            2. 서버에 중복인지 물어봄 => API 호출 (서버문서 확인)
-            ServerUtil.getRequestEmailCheck(mContext, inputEmail, null)
+            //ServerUtil.getRequestEmailCheck(mContext, inputEmail, null)
+            ServerUtil.getRequestEmailCheck(mContext, inputEmail, object:ServerUtil.JsonResponseHandler{
+                override fun onResponse(json: JSONObject) {
+//                  3. 검사 결과를 텍스트뷰에 반영
+                    //val code = json.getInt("code")
+//                  서버가 내려준 검사 결과 메세지를 텍스트뷰에 반영
+                    val message = json.getString("message")
+                    runOnUiThread {
+                        checkResultTxt.text = message //ui를 건드린다
+                    }
 
 
+                }
+            })
 
-
-//            3. 검사 결과를 텍스트뷰에 반영
         }
         okBtn.setOnClickListener {
 //            1.입력한 아이디/비번/닉네임 파악

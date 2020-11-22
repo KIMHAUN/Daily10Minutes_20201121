@@ -152,9 +152,6 @@ class ServerUtil {
                     handler?.onResponse(jsonObj)
                 }
             })
-
-
-
         }
     }
 }

@@ -81,16 +81,7 @@ class MainActivity : BaseActivity() {
                     val projectObj = projectsArr.getJSONObject(i)
 
 //                  projectObj는 JSONObject. => Project로 변환해서 ArrayList에 add
-                    var project = Project()
-
-//                   기본 데이터들을 서버가 주는 값으로 교체
-                    project.id = projectObj.getInt("id")
-                    project.title = projectObj.getString("title")
-                    project.imageURL = projectObj.getString("img_url")
-                    project.description = projectObj.getString("description")
-                    project.proofMethod = projectObj.getString("proof_method")
-                    project.completeDays = projectObj.getInt("complete_days")
-                    project.onGoingUsersCount = projectObj.getInt("ongoing_users_count")
+                    var project = Project.getProjectFromJSON(projectObj)
 
 //                    완성된 프로젝트 mProjectList에 추가.
                     mProjectArrayList.add(project)

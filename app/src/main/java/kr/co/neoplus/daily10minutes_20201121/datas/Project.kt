@@ -12,6 +12,7 @@ class Project : Serializable {
     var proofMethod = ""
     var completeDays = 0 // 완주 횟수
     var onGoingUsersCount = 0 //진행중인 유저 수
+    var isMyProject = false //참여중인 프로젝트인지 boolean값
     
     companion object{
         
@@ -30,6 +31,8 @@ class Project : Serializable {
             project.proofMethod = json.getString("proof_method")
             project.completeDays = json.getInt("complete_days")
             project.onGoingUsersCount = json.getInt("ongoing_users_count")
+
+            project.isMyProject = json.getBoolean("is_my_project")
             
 //            완성된 project 변수 리턴
             return project 

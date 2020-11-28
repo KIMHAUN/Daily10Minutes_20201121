@@ -2,6 +2,7 @@ package kr.co.neoplus.daily10minutes_20201121
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_view_project_detail.*
 import kr.co.neoplus.daily10minutes_20201121.datas.Project
@@ -63,5 +64,19 @@ class ViewProjectDetailActivity : BaseActivity() {
 
     //        서버가 주는 데이터 : 5 숫자 ->String 가공
         onGoingUsersCountTxt.text = "지금 ${mProject.onGoingUsersCount}명 참여중!"
+
+//    내 프로젝트인지 아닌지에 따라 버튼 보여주고 숨기는 부분
+        if(mProject.isMyProject){
+//            내가 진행중인 프로젝트가 맞다.
+//            도전하기 숨기고 포기하기 보여주자.
+            applyBtn.visibility = View.GONE
+            giveUpBtn.visibility = View.VISIBLE
+
+        }else{
+//            아직 신청하지 않은 프로젝트다.
+//            도전하기 보여주고 포기하기 숨기자.
+            applyBtn.visibility = View.VISIBLE
+            giveUpBtn.visibility = View.GONE
+        }
     }
 }

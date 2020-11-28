@@ -16,6 +16,11 @@
             android:src="@mipmap/ic_launcher"
             android:scaleType="centerCrop"/>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="#55000000"/>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +31,7 @@
                 android:id="@+id/projectTitleTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textColor="#FFFFFF"
                 android:text="프로젝트 제목"
                 android:textSize="25sp"/>
 
@@ -34,6 +39,7 @@
                 android:id="@+id/projectDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
                 android:text="프로젝트 설명"
                 android:textSize="17sp"/>
 

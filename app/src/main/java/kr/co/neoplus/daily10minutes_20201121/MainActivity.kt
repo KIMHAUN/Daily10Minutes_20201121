@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
+import kr.co.neoplus.daily10minutes_20201121.adapters.ProjectAdapter
 import kr.co.neoplus.daily10minutes_20201121.datas.Project
 import kr.co.neoplus.daily10minutes_20201121.utils.ContextUtil
 import kr.co.neoplus.daily10minutes_20201121.utils.ServerUtil
@@ -14,6 +15,7 @@ import org.json.JSONObject
 class MainActivity : BaseActivity() {
 
     val mProjectArrayList = ArrayList<Project>()
+    lateinit var mAdapter : ProjectAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +49,10 @@ class MainActivity : BaseActivity() {
 //        서버에 어떤 프로젝트들이 있는지 API 호출 => 그 결과(JSON)을 파싱해서 ArrayList에 대입
         getProjectsFromServer()
 
+        mAdapter = ProjectAdapter(mContext, R.layout.project_list_item, mProjectArrayList)
+
+        projectListView.adapter = mAdapter
+
     }
 
 //    서버에 프로젝트 목록 요청/분석 기능 함수
@@ -57,7 +63,7 @@ class MainActivity : BaseActivity() {
         ServerUtil.getProjectList(mContext, object : ServerUtil.JsonResponseHandler{
             override fun onResponse(json: JSONObject) {
                 val dataObj = json.getJSONObject("data") //중괄호{}
-                val projectsArr = dataObj.getJSONArray("project") // 대괄호[]
+                val projectsArr = dataObj.getJSONArray("projects") // 대괄호[]
 //                ex. 0~9(10직전)까지 for문
                 for (i in 0 until projectsArr.length()){
 //                    projectArr에서 자리에 맞는 i번째 { } JSONObject 추출
@@ -78,6 +84,12 @@ class MainActivity : BaseActivity() {
 //                    완성된 프로젝트 mProjectList에 추가.
                     mProjectArrayList.add(project)
                 }
+
+//                서버를 다녀오는 행위이므로 어댑터 연결보다 우선 작성 되어도 실제로는 늦게 끝날 수 있다.
+                runOnUiThread {
+                    mAdapter.notifyDataSetChanged()
+                }
+
             }
         })
     }

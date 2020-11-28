@@ -25,6 +25,17 @@ class MainActivity : BaseActivity() {
     }
     override fun setupEvents() {
 
+        projectListView.setOnItemClickListener { parent, view, position, id ->
+
+            val clickedProject = mProjectArrayList[position]
+//            상세 화면으로 이동 => 클릭된 프로젝트를 통째로 넘기자.
+            val myIntent = Intent(mContext, ViewProjectDetailActivity::class.java)
+
+            myIntent.putExtra("project", clickedProject)
+
+            startActivity(myIntent)
+        }
+
         logoutBtn.setOnClickListener {
 //            로그인 : 서버에 아이디 비번 맞는지 물어보는 API통신 맞으면 토큰을 기기에 저장.
 //            로그아웃 : 저장된 토큰 날려주는 행위 => 저장된 토큰을 ""로 변경

@@ -7,98 +7,117 @@
     android:orientation="vertical"
     tools:context=".ViewProjectDetailActivity">
 
-    <ImageView
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:src="@mipmap/ic_launcher"
-        android:scaleType="centerCrop"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="프로젝트 제목" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="17sp"
-            android:layout_marginTop="5dp"
-            android:text="실제 제목 자리" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#A0A0A0"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="프로젝트 설명" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="17sp"
-            android:layout_marginTop="5dp"
-            android:text="실제 설명 자리" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#A0A0A0"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="참여 인증 방법" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="17sp"
-            android:layout_marginTop="5dp"
-            android:text="실제 인증 방법 자리" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#A0A0A0"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="현재 참여 인원 수" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="17sp"
-            android:layout_marginTop="5dp"
-            android:text="지금 n명 참여중!" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#A0A0A0"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
-
-        <Button
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="나도 도전하기!" />
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/projectImg"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@mipmap/ic_launcher"
+                android:scaleType="centerCrop"/>
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="프로젝트 제목" />
+
+                <TextView
+                    android:id="@+id/projectTitleTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:layout_marginTop="5dp"
+                    android:text="실제 제목 자리" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#A0A0A0"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="프로젝트 설명" />
+
+                <TextView
+                    android:id="@+id/projectDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:layout_marginTop="5dp"
+                    android:text="실제 설명 자리" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#A0A0A0"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="참여 인증 방법" />
+
+                <TextView
+                    android:id="@+id/projectProofMethodTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:layout_marginTop="5dp"
+                    android:text="실제 인증 방법 자리" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#A0A0A0"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="현재 참여 인원 수" />
+
+                <TextView
+                    android:id="@+id/onGoingUsersCountTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:layout_marginTop="5dp"
+                    android:text="지금 n명 참여중!" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#A0A0A0"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <Button
+                    android:id="@+id/applyBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="나도 도전하기!" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
 </LinearLayout>

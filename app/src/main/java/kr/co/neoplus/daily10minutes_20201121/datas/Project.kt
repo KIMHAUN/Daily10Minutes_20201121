@@ -1,6 +1,8 @@
 package kr.co.neoplus.daily10minutes_20201121.datas
 
-class Project {
+import java.io.Serializable
+
+class Project : Serializable {
 
     var id = 0 //id에는 정수가 들어올 거라고 명시
     var title = "" //title 에는 String이 들어옴.

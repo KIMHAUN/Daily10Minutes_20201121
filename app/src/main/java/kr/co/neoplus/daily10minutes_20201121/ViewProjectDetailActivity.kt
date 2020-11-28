@@ -5,6 +5,8 @@ import android.os.Bundle
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_view_project_detail.*
 import kr.co.neoplus.daily10minutes_20201121.datas.Project
+import kr.co.neoplus.daily10minutes_20201121.utils.ContextUtil
+import kr.co.neoplus.daily10minutes_20201121.utils.ServerUtil
 
 class ViewProjectDetailActivity : BaseActivity() {
 
@@ -18,6 +20,14 @@ class ViewProjectDetailActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        //나도 도전하기!
+        applyBtn.setOnClickListener {
+
+
+        }
+
+
     }
 
     override fun setValues() {
@@ -32,6 +42,7 @@ class ViewProjectDetailActivity : BaseActivity() {
 
 //        서버가 주는 데이터 : 5 숫자 ->String 가공
         onGoingUsersCountTxt.text = "지금 ${mProject.onGoingUsersCount}명 참여중!"
+
 
 
 

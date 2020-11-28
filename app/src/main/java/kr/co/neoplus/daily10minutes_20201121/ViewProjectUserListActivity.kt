@@ -44,8 +44,15 @@ class ViewProjectUserListActivity : BaseActivity() {
 
 //              for문 이용 0 ~ 들어 있는 사용자 수 직전까지 돌자.
                 for(i in 0 until onGoingUsersArr.length()){
-
+//                    ongoingUsersArr에서 순서에 맞게 {} 하나 추출 => User형태로 변환 => mUserLIst에 추가
+                    val userObj = onGoingUsersArr.getJSONObject(i)
+                    val user = User.getUserFromJSON(userObj)
+                    mUserList.add(user)
                 }
+    
+//              모든 사용자가 mUserList에 추가 되었다.
+//              리스트뷰 내용물을 변경시키는 경우일 수도 있다.(연결 먼저, 서버 나중)
+//                내용 반영(notifyDataSet..) 처리 필요
             }
         })
     }

@@ -1,5 +1,6 @@
 package kr.co.neoplus.daily10minutes_20201121
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -22,6 +23,15 @@ class ViewProjectDetailActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        viewUsersBtn.setOnClickListener {
+//            명단 보기 화면으로 이동 => 어떤 프로젝트에 대한 참여자인가?
+//            프로젝트를 통째로 넘겨주자.
+
+            val myIntent = Intent(mContext, ViewProjectUserListActivity::class.java)
+            myIntent.putExtra("project", mProject)
+            startActivity(myIntent)
+        }
 
         //나도 도전하기!
         applyBtn.setOnClickListener {

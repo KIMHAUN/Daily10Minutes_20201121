@@ -2,14 +2,17 @@ package kr.co.neoplus.daily10minutes_20201121
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kr.co.neoplus.daily10minutes_20201121.datas.Project
 
 class ViewProjectUserListActivity : BaseActivity() {
+
+    lateinit var mProject : Project
     override fun setupEvents() {
-        TODO("Not yet implemented")
+
     }
 
     override fun setValues() {
-        TODO("Not yet implemented")
+        mProject = intent.getSerializableExtra("project") as Project
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

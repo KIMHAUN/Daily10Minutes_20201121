@@ -324,5 +324,39 @@ class ServerUtil {
             })
         }
 
+//      프로젝트의 참여자 명단 가져오기(needUserList는 true로 박음.)
+        fun getProjectUserList(context: Context, projectId: Int, handler:JsonResponseHandler?){
+            val client = OkHttpClient()
+
+            //          복잡한 주소를 가공해 나갈 때 필요한 기본 재료(URL 가공기)
+            val urlBuilder = "${BASE_URL}/project/${projectId}".toHttpUrlOrNull()!!.newBuilder()
+            //          url가공기를 이용해서 필요한 파라미터들을 쉽게 첨부 ?email=wha02079@naver.com
+            urlBuilder.addEncodedQueryParameter("need_user_list", "true")
+
+            // 가공이 끝난 URL을 urlString으로 변경
+            val urlString = urlBuilder.build().toString()
+            //Log.d("완성된 URL", urlString)
+            //          요청 정보를 종합하는 Request 생성
+            val request = Request.Builder()
+                .url(urlString)
+                .get() //이미 urlString에 파라미터 다들어있어서 넣을 필요 없음.
+                .header("X-Http-Token", ContextUtil.getLoginUserToken(context))
+                .build()
+
+            //      회원가입꺼 client 복붙
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    Toast.makeText(context, "서버에 문제가 있씁니다.", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val bodyString = response.body!!.string()
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버 응답 본문", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+                }
+            })
+        }
+
     }
 }

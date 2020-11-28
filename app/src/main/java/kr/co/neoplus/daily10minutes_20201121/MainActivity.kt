@@ -56,11 +56,29 @@ class MainActivity : BaseActivity() {
 //        실제 서버 호출 등 작업
         ServerUtil.getProjectList(mContext, object : ServerUtil.JsonResponseHandler{
             override fun onResponse(json: JSONObject) {
+                val dataObj = json.getJSONObject("data") //중괄호{}
+                val projectsArr = dataObj.getJSONArray("project") // 대괄호[]
+//                ex. 0~9(10직전)까지 for문
+                for (i in 0 until projectsArr.length()){
+//                    projectArr에서 자리에 맞는 i번째 { } JSONObject 추출
+                    val projectObj = projectsArr.getJSONObject(i)
 
+//                  projectObj는 JSONObject. => Project로 변환해서 ArrayList에 add
+                    var project = Project()
 
+//                   기본 데이터들을 서버가 주는 값으로 교체
+                    project.id = projectObj.getInt("id")
+                    project.title = projectObj.getString("title")
+                    project.imageURL = projectObj.getString("img_url")
+                    project.description = projectObj.getString("description")
+                    project.proofMethod = projectObj.getString("proof_method")
+                    project.completeDays = projectObj.getInt("complete_days")
+                    project.onGoingUsersCount = projectObj.getInt("ongoing_users_count")
+
+//                    완성된 프로젝트 mProjectList에 추가.
+                    mProjectArrayList.add(project)
+                }
             }
-
         })
-
     }
 }

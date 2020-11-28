@@ -45,6 +45,20 @@ class ViewProjectDetailActivity : BaseActivity() {
                 }
             })
         }
+
+        giveUpBtn.setOnClickListener {
+//            서버에 프로젝트 포기 요청
+            ServerUtil.deleteRequestGiveupProject(mContext, mProject.id, object : ServerUtil.JsonResponseHandler{
+                override fun onResponse(json: JSONObject) {
+
+//                    참여 신청과 달리 서버가 최신 상태를 안 알려줌.
+//                    다시 최신 상태로 받아오게 요청 => API 추가 호출 => 새로고침.
+
+
+                }
+            })
+
+        }
     }
 
     override fun setValues() {

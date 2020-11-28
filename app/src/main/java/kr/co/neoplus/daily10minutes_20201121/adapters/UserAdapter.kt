@@ -2,6 +2,7 @@ package kr.co.neoplus.daily10minutes_20201121.adapters
 
 import android.content.Context
 import android.media.Image
+import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +31,14 @@ class UserAdapter(
         }
         val row = tempRow!!
 
+        val profileImg = row.findViewById<ImageView>(R.id.profileImg)
+        val nickNameTxt = row.findViewById<TextView>(R.id.nickNameTxt)
+        val emailTxt = row.findViewById<TextView>(R.id.emailTxt)
 
+        val userData = mList[position]
+
+        nickNameTxt.text = userData.nickName
+        emailTxt.text = userData.email
         return row
     }
 }

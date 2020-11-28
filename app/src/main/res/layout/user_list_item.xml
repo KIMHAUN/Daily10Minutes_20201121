@@ -12,6 +12,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImg"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@mipmap/ic_launcher"
@@ -22,11 +23,13 @@
             android:layout_marginLeft="15dp"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/nickNameTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:text="닉네임 자리"/>
             <TextView
+                android:id="@+id/emailTxt"
                 android:layout_width="wrap_content"
                 android:textSize="14sp"
                 android:layout_height="wrap_content"

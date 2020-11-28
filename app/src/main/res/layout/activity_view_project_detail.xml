@@ -116,6 +116,12 @@
                     android:text="나도 도전하기!" />
 
                 <Button
+                    android:id="@+id/viewUsersBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="참여 중인 사람 명단 확인" />
+
+                <Button
                     android:id="@+id/giveUpBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

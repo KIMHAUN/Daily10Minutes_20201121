@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Daily10Minutes_20201121"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SplashActivity"
+        <activity android:name=".ViewProjectDetailActivity"></activity>
+        <activity
+            android:name=".SplashActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +24,7 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".LoginActivity">
-
-        </activity>
+        <activity android:name=".LoginActivity"></activity>
     </application>
 
 </manifest>

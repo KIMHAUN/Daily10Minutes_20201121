@@ -1,10 +1,14 @@
 package kr.co.neoplus.daily10minutes_20201121.adapters
 
 import android.content.Context
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.TextView
+import com.bumptech.glide.Glide
 import kr.co.neoplus.daily10minutes_20201121.R
 import kr.co.neoplus.daily10minutes_20201121.datas.Project
 
@@ -24,6 +28,21 @@ class ProjectAdapter(
             tempRow = mInf.inflate(R.layout.project_list_item, null)
         }
         val row = tempRow!!
+
+        val projectBackgroundImg = row.findViewById<ImageView>(R.id.projectBackgroundImg)
+        val projectTitleTxt = row.findViewById<TextView>(R.id.projectTitleTxt)
+        val projectDescription = row.findViewById<TextView>(R.id.projectDescription)
+
+        val projectData = mList[position]
+
+        projectTitleTxt.text = projectData.title
+        projectDescription.text = projectData.description
+        Glide.with(mContext)
+            .load(projectData.imageURL)
+            .centerCrop()
+            .into(projectBackgroundImg)
+
+
         return row
     }
 }

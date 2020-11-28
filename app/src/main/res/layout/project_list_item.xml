@@ -10,6 +10,7 @@
         android:layout_height="250dp"
         >
         <ImageView
+            android:id="@+id/projectBackgroundImg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@mipmap/ic_launcher"
@@ -22,6 +23,7 @@
             android:gravity="center"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/projectTitleTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
@@ -29,6 +31,7 @@
                 android:textSize="25sp"/>
 
             <TextView
+                android:id="@+id/projectDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="프로젝트 설명"

@@ -50,7 +50,7 @@ class UserAdapter(
 //        양식 가공 : SimpleDateFormat 활용
 
 //        가공할 양식 결정
-        val sdf = SimpleDateFormat("yyyy-MM-dd")
+        val sdf = SimpleDateFormat("yyyy년 M월 d일")
 
 //        해당 양식 활용해서 Calendar를 String으로 뽑아내자.
         val createdAtStr = sdf.format(userData.createdAt.time)

@@ -29,7 +29,5 @@ class MyFCM : FirebaseMessagingService(){
         myHandler.post{
             Toast.makeText(applicationContext, p0.notification!!.title, Toast.LENGTH_SHORT).show()
         }
-
-
     }
 }

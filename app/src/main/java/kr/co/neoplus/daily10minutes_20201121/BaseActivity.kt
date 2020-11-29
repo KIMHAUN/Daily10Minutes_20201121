@@ -15,7 +15,12 @@ abstract class BaseActivity : AppCompatActivity(){
 
 //        모든 화면이 공통적으로 실행하는 함수에서 액션바 설정
 //        모든 화면에 커스텀 액션바 자동 반영
-        setCustomActionBar()
+        //? null이 아닐 때만 실행해주세요.
+        supportActionBar?.let {
+//            supportActionBar가 null이 아닐 때 실행시켜줄 코드. : let의 역할.
+            setCustomActionBar()
+
+        }
     }
 
     val mContext = this

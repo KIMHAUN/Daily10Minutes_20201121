@@ -4,10 +4,12 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_main.*
 import kr.co.neoplus.daily10minutes_20201121.adapters.ProjectAdapter
 import kr.co.neoplus.daily10minutes_20201121.datas.Project
@@ -25,6 +27,8 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         setupEvents()
         setValues()
+
+        Log.d("기기토큰", FirebaseInstanceId.getInstance().token!!)
 
         //        액션바 자체를 커스텀으로 그리려면?
        // setCustomActionBar()

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "598771298381",
+    "firebase_url": "https://my-push-test-574b8.firebaseio.com",
+    "project_id": "my-push-test-574b8",
+    "storage_bucket": "my-push-test-574b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598771298381:android:d7e3ea00e5547b416eec04",
+        "android_client_info": {
+          "package_name": "kr.co.neoplus.daily10minutes_20201121"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598771298381-oeg5sfu29247l02o1rio3pggf5io9iiq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRq35j_0cJcexu08px2W0jEf40UUTLGYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598771298381-oeg5sfu29247l02o1rio3pggf5io9iiq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

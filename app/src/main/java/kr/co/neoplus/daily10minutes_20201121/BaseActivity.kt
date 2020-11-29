@@ -3,11 +3,15 @@ package kr.co.neoplus.daily10minutes_20201121
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
+import android.widget.ImageView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 abstract class BaseActivity : AppCompatActivity(){
+
+//   커스텀 액션바에 만들어둔 UI 요소들을 담아둘 변수들
+    lateinit var backBtn : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +57,12 @@ abstract class BaseActivity : AppCompatActivity(){
 //    insets : 내부 값
         toolbar.setContentInsetsAbsolute(0, 0)
 
-    }
+//        액션바 xml에 있는 UI요소들을 멤버변수(lateinit var)에 연결 => 코틀린단에서 사용 가능
+        backBtn = defaultActionBar.customView.findViewById(R.id.backBtn)
 
+//        backBtn 눌리면 무조건 finish() 실행.
+        backBtn.setOnClickListener {
+            finish()
+        }
+    }
 }

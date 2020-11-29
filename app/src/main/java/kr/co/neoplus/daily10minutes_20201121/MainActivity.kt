@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
@@ -27,6 +28,7 @@ class MainActivity : BaseActivity() {
 
         //        액션바 자체를 커스텀으로 그리려면?
        // setCustomActionBar()
+
     }
     override fun setupEvents() {
 
@@ -66,6 +68,9 @@ class MainActivity : BaseActivity() {
 //        액션바의 제목을 바꾸는 제일 기본적인 방법
 
 //        title = "메인화면" //쉬운 대신 자주 사용되지 않는다.
+
+//        BaseActivity가 물려준 backBtn! 숨겨보리기.
+        backBtn.visibility = View.GONE
 
 //        서버에 어떤 프로젝트들이 있는지 API 호출 => 그 결과(JSON)을 파싱해서 ArrayList에 대입
         getProjectsFromServer()

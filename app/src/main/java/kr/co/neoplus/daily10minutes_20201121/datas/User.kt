@@ -43,13 +43,16 @@ class User : Serializable {
 
 //            사용자의 회원가입 일자를 2000-01-01 00:00:00으로 세팅하고싶다.
 
-//            1)항목을 지정하고 거기에 들어갈 값 명시
+//            1) 항목을 지정하고 거기에 들어갈 값 명시
             u.createdAt.set(Calendar.YEAR, 2000) //년도 자리에 2000
             u.createdAt.set(Calendar.MONTH, Calendar.JANUARY) //0~11월 Calendar.Janu
             u.createdAt.set(Calendar.DAY_OF_MONTH, 1) //(월 중에 몇 번쩨 일인지) 일자 자리
 
-//            2)연/월/일 등 일괄 입력 여러 항목을 한꺼번에 입력하기
+//            2) 연/월/일 등 일괄 입력 여러 항목을 한꺼번에 입력하기
             u.createdAt.set(2000, Calendar.JANUARY, 1, 0, 0, 0)
+
+//            3) Calendar 내부의 time 변수를 통째로 변경 -> 서버 데이터 파싱시 활용. 실습 x
+
 
             return u
         }

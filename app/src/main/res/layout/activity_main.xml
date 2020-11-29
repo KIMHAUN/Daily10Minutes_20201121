@@ -7,10 +7,17 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/red_border_box"/>
+
     <Button
         android:id="@+id/logoutBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:text="임시 로그아웃 버튼"/>
 
     <ListView

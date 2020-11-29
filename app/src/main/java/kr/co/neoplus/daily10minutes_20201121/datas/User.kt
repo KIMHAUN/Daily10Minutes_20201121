@@ -2,6 +2,7 @@ package kr.co.neoplus.daily10minutes_20201121.datas
 
 import org.json.JSONObject
 import java.io.Serializable
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -51,9 +52,21 @@ class User : Serializable {
 //            2) 연/월/일 등 일괄 입력 여러 항목을 한꺼번에 입력하기
             u.createdAt.set(2000, Calendar.JANUARY, 1, 0, 0, 0)
 
-//            3) Calendar 내부의 time 변수를 통째로 변경 -> 서버 데이터 파싱시 활용. 실습 x
+//            3) Calendar 내부의 time 변수를 통째로 변경 -> 서버 데이터 파싱시 활용.
 
+//            서버가 주는 String을 우선 저장
+            val createdAtStr = json.getString("created_at")
 
+//            Calendar에 들어갈 수 있게 해주자. String 변환(SimpleDateFormat)
+            val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss") //이 양식으로 된 걸 분석.
+
+//            sdf를 이용해서 createdAtStr를 Calendar(u.createdAt)에 대입.
+
+//            분석 결과 : Date?로 나옴.Calendar 아님.
+            val parsedTime = sdf.parse(createdAtStr)
+
+//            Calendar에 Date를 어떻게 대입하누냐 ~~ => Calendar가 가진 time 변수에 대임
+            u.createdAt.time = parsedTime
             return u
         }
     }

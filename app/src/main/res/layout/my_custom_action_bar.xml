@@ -20,4 +20,11 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="5dp"/>
 
+    <ImageView
+        android:layout_marginLeft="170dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:src="@drawable/bell"
+        android:layout_gravity="center"/>
+
 </FrameLayout>
